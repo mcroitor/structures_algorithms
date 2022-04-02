@@ -1,17 +1,17 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <algorithm>
 
 int main(){
     std::vector<int> v;
     int size, index;
-    std::cin >> size >> index;
+    scanf("%d %d", &size, &index);
     v.resize(size);
     for(int i = 0; i < size; i++){
-        std::cin >> v[i];
+        scanf("%d", &v[i]);
     }
 
     std::sort(v.begin(), v.end());
-    std::cout << v[index] << std::endl;
+    printf("%d", v[index]);
     return 0;
 }
