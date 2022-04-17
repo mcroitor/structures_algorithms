@@ -24,7 +24,7 @@
 | ------| :----: |
 | 5<br />INSERT 5<br />INSERT 7<br />INSERT 1<br />INSERT 20<br />INSERT 9 | 5 1 7 20 9 |
 | 2<br />INSERT 5<br />REMOVE 5 | empty |
-| 10<br />ADD 3<br />ADD 5<br />ADD 1<br />ADD 9<br />ADD 2<br />ADD 5<br />ADD 2<br />ADD 5<br />ADD 7<br />ADD 7 | 3 1 2 2 5 9 5 5 7 7 |
+| 10<br />INSERT 4<br />INSERT 3<br />INSERT 4<br />INSERT 0<br />INSERT 8<br />REMOVE 0<br />INSERT 3<br />INSERT 9<br />INSERT 7<br />INSERT 1 | 4 3 1 3 4 8 7 9 |
 
 ## Рекомендации по решению
 
