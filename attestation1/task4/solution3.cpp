@@ -17,7 +17,9 @@ float distance(float a, float b, float k) {
     return fabs(k - (a / b));
 }
 
+
 const int MAX_N = 1000000;
+
 int a[MAX_N + 1] = {0};
 int b[MAX_N + 1] = {0};
 
