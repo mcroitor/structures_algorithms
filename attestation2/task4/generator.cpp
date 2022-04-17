@@ -21,7 +21,9 @@ int main(int argc, char *argv[])
     // generate array
     for (int i = 0; i < size; i++)
     {
-        std::cout << "ADD " << generator() % size << std::endl;
+        int command = generator() % 10;
+        std::cout << ((command == 1) ? "REMOVE " : "INSERT ") 
+                    << generator() % size << std::endl;
     }
     return 0;
 }

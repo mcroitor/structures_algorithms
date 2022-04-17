@@ -3,49 +3,91 @@
 
 struct node
 {
-    int data;
+    int value;
     node *left;
     node *right;
 };
 
 class binary_tree
 {
-    node* root;
+    node *root;
 
-    node* create(int data)
+    node *create(int value)
     {
-        node* new_node = new node;
-        new_node->data = data;
+        node *new_node = new node;
+        new_node->value = value;
         new_node->left = nullptr;
         new_node->right = nullptr;
         return new_node;
     }
 
-    void remove(node* n)
+    node *parent(node *n)
+    {
+        if (n == root)
+        {
+            return nullptr;
+        }
+        node *p = root;
+        while (p->left != n && p->right != n)
+        {
+            if (n->value < p->value)
+            {
+                p = p->left;
+            }
+            else
+            {
+                p = p->right;
+            }
+        }
+        return p;
+    }
+
+    void remove(node *n)
     {
         if (n == nullptr)
+        {
             return;
+        }
         remove(n->left);
         remove(n->right);
+
+        node *p = parent(n);
+        if (p == nullptr)
+        {
+            root = nullptr;
+            return;
+        }
+        if (p->left == n)
+        {
+            p->left = nullptr;
+        }
+        else
+        {
+            p->right = nullptr;
+        }
         delete n;
     }
 
-    void print_inorder(node* n)
+    void print_inorder(node *n)
     {
         if (n == nullptr)
+        {
             return;
-        print_inorder(n->left);
-        std::cout << n->data << " ";
-        print_inorder(n->right);
+        }
+        this->print_inorder(n->left);
+        std::cout << n->value << " ";
+        this->print_inorder(n->right);
     }
 
-    void print_preorder(node* n)
+    void print_preorder(node *n)
     {
         if (n == nullptr)
+        {
             return;
-        std::cout << n->data << " ";
-        print_preorder(n->left);
-        print_preorder(n->right);
+        }
+        std::cout << n->value << " ";
+        this->print_preorder(n->left);
+        this->print_preorder(n->right);
     }
 
 public:
@@ -53,40 +95,48 @@ public:
 
     ~binary_tree()
     {
-        remove(root);
+        this->remove(root);
     }
 
-    void insert(int data){
-        if(root == nullptr){
-            root = create(data);
+    void insert(int value)
+    {
+        if (root == nullptr)
+        {
+            root = this->create(value);
             return;
         }
-        node* temp = root;
-        while(true){
-            if(data < temp->data){
-                if(temp->left == nullptr){
-                    temp->left = create(data);
+        node *temp = root;
+        while (true)
+        {
+            if (value < temp->value)
+            {
+                if (temp->left == nullptr)
+                {
+                    temp->left = this->create(value);
                     return;
                 }
                 temp = temp->left;
             }
-            else{
-                if(temp->right == nullptr){
-                    temp->right = create(data);
+            else
+            {
+                if (temp->right == nullptr)
+                {
+                    temp->right = this->create(value);
                     return;
                 }
                 temp = temp->right;
             }
         }
-        
     }
 
-    node* find(int data){
-        node* temp = root;
-        while(temp != nullptr){
-            if(data == temp->data)
+    node *find(int value)
+    {
+        node *temp = root;
+        while (temp != nullptr)
+        {
+            if (value == temp->value)
                 return temp;
-            if(data < temp->data)
+            if (value < temp->value)
                 temp = temp->left;
             else
                 temp = temp->right;
@@ -94,27 +144,46 @@ public:
         return nullptr;
     }
 
-    void print_inorder(){
-        print_inorder(root);
+    void remove(int value)
+    {
+        node *temp = this->find(value);
+        this->remove(temp);
     }
 
-    void print_preorder(){
-        print_preorder(root);
+    void print_inorder()
+    {
+        this->print_inorder(root);
+    }
+
+    void print_preorder()
+    {
+        if(root == nullptr)
+        {
+            std::cout << "empty";
+        }
+        this->print_preorder(root);
     }
 };
 
-int main() {
+int main()
+{
     binary_tree tree;
     int m, n;
     std::string command;
 
     std::cin >> m;
 
-    while(m --){
+    while (m--)
+    {
         std::cin >> command >> n;
 
-        if(command == "ADD") {
+        if (command == "INSERT")
+        {
             tree.insert(n);
+        }
+        else if (command == "REMOVE")
+        {
+            tree.remove(n);
         }
     }
 
