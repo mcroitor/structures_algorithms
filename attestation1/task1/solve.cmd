@@ -14,3 +14,8 @@ gcc solver.cpp -o %SOLVER% -lstdc++
 %SOLVER% < tests/input08.txt > tests/output08.txt
 %SOLVER% < tests/input09.txt > tests/output09.txt
 %SOLVER% < tests/input10.txt > tests/output10.txt
+%SOLVER% < tests/input11.txt > tests/output11.txt
+%SOLVER% < tests/input12.txt > tests/output12.txt
+%SOLVER% < tests/input13.txt > tests/output13.txt
+%SOLVER% < tests/input14.txt > tests/output14.txt
+%SOLVER% < tests/input15.txt > tests/output15.txt
