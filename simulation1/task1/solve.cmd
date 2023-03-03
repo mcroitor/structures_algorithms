@@ -2,7 +2,7 @@ set SOLVER=solver.exe
 
 if exist %SOLVER% del %SOLVER%
 
-gcc solver.cpp -o %SOLVER% -lstdc++
+gcc linearsearch.cpp -o %SOLVER% -lstdc++
 
 %SOLVER% < tests/input01.txt > tests/output01.txt
 %SOLVER% < tests/input02.txt > tests/output02.txt
@@ -19,3 +19,8 @@ gcc solver.cpp -o %SOLVER% -lstdc++
 %SOLVER% < tests/input13.txt > tests/output13.txt
 %SOLVER% < tests/input14.txt > tests/output14.txt
 %SOLVER% < tests/input15.txt > tests/output15.txt
+%SOLVER% < tests/input16.txt > tests/output16.txt
+%SOLVER% < tests/input17.txt > tests/output17.txt
+%SOLVER% < tests/input18.txt > tests/output18.txt
+%SOLVER% < tests/input19.txt > tests/output19.txt
+%SOLVER% < tests/input20.txt > tests/output20.txt

@@ -14,11 +14,17 @@ int main(int argc, char* argv[]){
 
     // generate index
     int index = generator() % size;
+    int fixedNumber, generatedNumber;
 
-    std::cout << size << " " << index << std::endl;
+    std::cout << size << std::endl;
     // generate array
     for(int i = 0; i < size; i++){
-        std::cout << rand() % (2 * size) << " ";
+        generatedNumber = generator() % (2 * size);
+        std::cout << generatedNumber << " ";
+        if(i == index) {
+            fixedNumber = generatedNumber;
+        }
     }
+    std::cout << std::endl << fixedNumber << std::endl;
     return 0;
 }
