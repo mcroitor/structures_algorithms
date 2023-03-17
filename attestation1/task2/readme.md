@@ -14,4 +14,4 @@
 
 | INPUT | OUTPUT |
 | ------| :----: |
-| 5<br />bogdanov bogdan 223-345<br />fedorov fedor 310-890<br />ivanov ivan 666-666<br />petrov petr 555-555<br />sidorov sidor 894-217<br />666-666 | ivanov ivan 666-666 |
+| 5<br />bogdanov bogdan 223-345<br />fedorov fedor 310-890<br />petrov petr 555-555<br />ivanov ivan 666-666<br />sidorov sidor 894-217<br />666-666 | ivanov ivan 666-666 |
