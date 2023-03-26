@@ -15,7 +15,7 @@ template<typename Type>
 size_t binary_search(Type* array, size_t size, Type value) {
     size_t left = 0;
     size_t right = size;
-    while(left +1 <= right) {
+    while(left < right) {
         size_t middle = (left + right) / 2;
         if(array[middle] == value) {
             return middle;
@@ -28,6 +28,26 @@ size_t binary_search(Type* array, size_t size, Type value) {
         }
     }
     return size;
+}
+```
+
+```cpp
+
+template<typename iterator, typename type>
+iterator binary_search(iterator begin, iterator end, type value) {
+    while( begin < end) {
+        iterator middle = begin + (end - begin) / 2;
+        if(*middle == value) {
+            return middle;
+        }
+        if(*middle < value) {
+            begin = middle + 1;
+        }
+        else {
+            end = middle;
+        }
+
+    }
 }
 ```
 
