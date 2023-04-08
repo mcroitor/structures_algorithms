@@ -28,19 +28,10 @@ int main(){
     std::string phone;
     std::cin >> phone;
 
-    int a = 0, b = size - 1;
-    int index = (a + b) / 2;
+    line oops = {"", "", phone};
 
-    while(v[index].phone != phone){
-        if(v[index].phone < phone){
-            a = index;
-        }
-        else{
-            b = index;
-        }
-        index = (a + b) / 2;
-    }
+    auto result = std::lower_bound(v.begin(), v.end(), oops, [](line el, line val){ return el.phone < val.phone; });
 
-    std::cout << v[index] << std::endl;
+    std::cout << *result << std::endl;
     return 0;
 }
