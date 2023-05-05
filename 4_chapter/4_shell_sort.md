@@ -14,14 +14,22 @@ __Сортировка Шелла__ (англ. _Shell sort_) — алгорит�
 ```cpp
 template <typename Type>
 void shell_sort(Type* array, size_t size) {
-    for(size_t distance = size/2; distance > 0; distance /= 2) {
-        for(size_t i = distance; i < size; ++i) {
-            for(size_t j = i - distance; array[j] > array[j + distance]; j -= distance) {
-                Type temp = array[j];
-                array[j] = array[j + distance];
-                array[j + distance] = temp;
+    size_t step = size / 2;
+
+    while (step > 0)
+    {
+        for (size_t i = 0; i < size - step; ++i)
+        {
+            size_t j = i + step;
+            while (j >= step && array[j] < array[j - step])
+            {
+                Type  tmp = array[j];
+                array[j] = array[j - step];
+                array[j - step] = tmp;
+                j -= step;
             }
         }
+        step /= 2;
     }
 }
 ```
